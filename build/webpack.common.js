@@ -10,6 +10,13 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
     filename: 'js/[name].[hash:8].js'
   },
+  resolve: {
+    alias: {
+      '@pages': path.resolve(__dirname, '../src/pages'),
+      '@components': path.resolve(__dirname, '../src/components'),
+    },
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.png']
+  },
   module: {
     rules: [
       {
@@ -54,12 +61,6 @@ module.exports = {
       }
     ])
   ],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, '../src/')
-    },
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.png']
-  },
   optimization: {
     runtimeChunk: 'single',
     splitChunks: {
