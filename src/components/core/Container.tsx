@@ -8,7 +8,7 @@ interface Props {
 const Container = styled.div<Props>`
   height: ${props => props.fullscreen ? '100vh' : '100%'};
   width: ${props => props.fullscreen ? '100vw' : '100%'};
-  background: '#fff';
+  background: ${props => props.background || '#000'};
   display: flex;
   flex-direction: column;
   justify-content: center;
