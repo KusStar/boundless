@@ -12,6 +12,10 @@ module.exports = {
   },
   resolve: {
     alias: {
+      "react": "preact/compat",
+      "react-dom/test-utils": "preact/test-utils",
+      "react-dom": "preact/compat",
+      
       '@pages': path.resolve(__dirname, '../src/pages'),
       '@components': path.resolve(__dirname, '../src/components'),
     },
