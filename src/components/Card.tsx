@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Text, Container } from '@components/core'
-import { mobileWidthPixels } from '@utils/threshold'
+import { mobileMediaQuery } from '@utils/threshold'
 
 interface Props {
   content: string
@@ -18,7 +18,7 @@ const Wrapper = styled(Container)`
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
     transform: translate3d(0px, -2px, 0px);
   }
-  @media (max-width: ${mobileWidthPixels}) {
+  @media ${mobileMediaQuery} {
     height: 60vw;
     width: 60vw;
   }

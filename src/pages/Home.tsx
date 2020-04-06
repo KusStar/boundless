@@ -1,14 +1,15 @@
 import React from 'react'
-import { Container } from '@components/core'
+import { Container, Fade } from '@components/core'
 import Card from '@components/Card'
 import Box from '@components/Box'
-
 
 const Home: React.FC = () => {
   return (
     <Container fullscreen>
-      <Box>
-        <Card content={`你只是一个人\n只是不停流逝的瞬间`} />
+      <Box background="#eee">
+        <Fade duration={1000}>
+          <Card content={`你只是一个人\n只是不停流逝的瞬间`} />
+        </Fade>
       </Box>
     </Container>
   )

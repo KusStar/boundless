@@ -1,1 +1,1 @@
-export const mobileWidthPixels = '444px'
+export const mobileMediaQuery = '(max-width: 444px)'

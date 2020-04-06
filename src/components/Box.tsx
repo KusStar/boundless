@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import { Container } from '@components/core'
-import { mobileWidthPixels } from '@utils/threshold'
+import { mobileMediaQuery } from '@utils/threshold'
 
 const Box = styled(Container)`
   width: 400px;
 
-  @media (max-width: ${mobileWidthPixels}) {
+  @media ${mobileMediaQuery} {
     width: 100%;
   }
 `
