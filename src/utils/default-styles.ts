@@ -7,6 +7,8 @@ export const DefaultStyles = createGlobalStyle`
     -khtml-user-select:none;  
     -moz-user-select:none;  
     -ms-user-select:none;  
-    user-select:none;  
+    user-select:none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
   }  
 `
