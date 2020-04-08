@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text, Container } from '@components/core'
+import { Container } from '@components/core'
 import { mobileMediaQuery } from '@utils/threshold'
 
 interface Props {
-  content: string
+  children?: React.ReactNode
 }
 
 const Wrapper = styled(Container)`
@@ -18,6 +18,8 @@ const Wrapper = styled(Container)`
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
     transform: translate3d(0px, -2px, 0px);
   }
+  padding: 8px;
+  
   @media ${mobileMediaQuery} {
     height: 60vw;
     width: 60vw;
@@ -25,13 +27,11 @@ const Wrapper = styled(Container)`
 `
 
 const Card: React.FC<Props> = ({
-  content = 'NMSL'
+  children
 }) => {
   return (
     <Wrapper>
-      <Text>
-        {content}
-      </Text>
+      {children}
     </Wrapper>
   )
 }
