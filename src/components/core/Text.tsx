@@ -5,7 +5,7 @@ const Text = styled.p`
   color: #fff;
   font-size: 1.2rem;
   line-height: 1.5rem;
-  font-family: 'Noto Serif TC', serif;
+  font-family: sans-serif;
   white-space: pre-line;
   letter-spacing: 0;
 
