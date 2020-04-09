@@ -1,37 +1,37 @@
 import React from 'react'
 import { connect } from 'unistore/react'
-import { Container, Fade, Input, Text } from '@components/core'
-import Card from '@components/Card'
+import assets from '@utils/assets'
+import { Container, Content, Text } from '@components/core'
+import Background from '@components/Background'
 import Box from '@components/Box'
-import { InjectedPlayerProps, actions } from '@utils/store/player'
+import Status from '@components/status'
+import BottomBar from '@components/bottom'
+import { InjectedPlayerProps, actions as playerActions } from '@utils/store/player'
+import { InjectedSystemProps, actions as systemActions } from '@utils/store/system'
+import { compose } from '@utils/helpers'
 
-type Props = InjectedPlayerProps
+type Props = InjectedPlayerProps & InjectedSystemProps
 
 const Home = (props: Props) => {
-  const { player, changeName } = props;
-
-  const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const name = String(event.target.value)
-    changeName(name)
-  }
+  const { player, changeName, } = props;
 
   return (
     <Container fullscreen>
-      <Box background="#eee">
-        <Fade>
-          <Card>
-            <Input 
-              placeholder="NMSL" 
-              onChange={onInputChange}
-            />
-            <Text>
-              {player.name}
-            </Text>
-          </Card>
-        </Fade>
+      <Box>
+        <Background src={assets.home}/>
+        <Status />
+        <Content>
+          <Text>
+            {player.name}
+          </Text>
+        </Content>
+        <BottomBar />
       </Box>
     </Container>
   )
 }
 
-export default connect<{}, {}, {}, InjectedPlayerProps>('player', actions)(Home)
+export default connect<{}, {}, {}, Props>(
+  ['player', 'system'], 
+  compose(playerActions, systemActions)
+)(Home)
