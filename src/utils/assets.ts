@@ -1,4 +1,6 @@
 const home = 'https://s1.ax1x.com/2020/04/09/G5TtZ4.jpg'
+const hospital = 'https://s1.ax1x.com/2020/04/09/GI1Zd0.jpg'
+const door = 'https://s1.ax1x.com/2020/04/09/GI1Mz4.jpg'
 const morning = 'assets/images/morning.png'
 const noon = 'assets/images/noon.png'
 const night = 'assets/images/night.png'
@@ -14,6 +16,8 @@ const largeBox = 'assets/images/large_box.png'
 
 export default {
   home,
+  hospital,
+  door,
   morning,
   noon,
   night,
