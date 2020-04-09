@@ -7,6 +7,10 @@ const box = 'assets/images/box.png'
 const event = 'assets/images/event.png'
 const story = 'assets/images/story.png'
 const switcher = 'assets/images/switch.png'
+const food = 'assets/images/food.png'
+const money = 'assets/images/money.png'
+const mask = 'assets/images/mask.png'
+const largeBox = 'assets/images/large_box.png'
 
 export default {
   home,
@@ -17,5 +21,9 @@ export default {
   box,
   event,
   story,
-  switcher
+  switcher,
+  food,
+  money,
+  mask,
+  largeBox
 }
