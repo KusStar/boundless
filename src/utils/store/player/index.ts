@@ -12,10 +12,10 @@ export default {
 }
 
 export const actions = {
-  changeName: (state: Player, name: string) => {
+  changeName: (state: State, name: string) => {
     return { 
       player: {
-        ...state,
+        ...state.player,
         name
       }
      }
