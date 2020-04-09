@@ -1,9 +1,11 @@
 import createStore from 'unistore'
 import devtools from 'unistore/devtools'
 import player from './player'
+import system from './system'
 
 const initialState = {
-  player: player.state
+  player: player.state,
+  system: system.state,
 }
 
 const store = process.env.NODE_ENV === 'production' 
