@@ -1,18 +1,37 @@
 import React from 'react'
-import { Container, Fade } from '@components/core'
+import { connect } from 'unistore/react'
+import { Container, Fade, Input, Text } from '@components/core'
 import Card from '@components/Card'
 import Box from '@components/Box'
+import { InjectedPlayerProps, actions } from '@utils/store/player'
 
-const Home: React.FC = () => {
+type Props = InjectedPlayerProps
+
+const Home = (props: Props) => {
+  const { player, changeName } = props;
+
+  const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const name = String(event.target.value)
+    changeName(name)
+  }
+
   return (
     <Container fullscreen>
       <Box background="#eee">
-        <Fade duration={1000}>
-          <Card content={`你只是一个人\n只是不停流逝的瞬间`} />
+        <Fade>
+          <Card>
+            <Input 
+              placeholder="NMSL" 
+              onChange={onInputChange}
+            />
+            <Text>
+              {player.name}
+            </Text>
+          </Card>
         </Fade>
       </Box>
     </Container>
   )
 }
 
-export default Home
+export default connect<{}, {}, {}, InjectedPlayerProps>('player', actions)(Home)
