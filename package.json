@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "@popperjs/core": "^2.2.1",
     "@types/react": "^16.9.27",
     "@types/react-dom": "^16.9.5",
     "@types/styled-components": "^5.0.1",
@@ -25,6 +26,7 @@
     "prettier": "^1.19.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-popper": "^2.1.0",
     "styled-components": "^5.0.1",
     "styled-reset": "^4.1.2",
     "ts-loader": "^6.2.1",
