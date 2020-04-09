@@ -6,6 +6,7 @@ import Background from '@components/Background'
 import Box from '@components/Box'
 import Status from '@components/status'
 import BottomBar from '@components/bottom'
+import Package from '@components/scenes/Package'
 import { InjectedPlayerProps, actions as playerActions } from '@utils/store/player'
 import { InjectedSystemProps, actions as systemActions } from '@utils/store/system'
 import { compose } from '@utils/helpers'
@@ -21,9 +22,7 @@ const Home = (props: Props) => {
         <Background src={assets.home} />
         <Status />
         <Content>
-          <Text>
-            {player.name}
-          </Text>
+          <Package />
         </Content>
         <BottomBar />
       </Box>
