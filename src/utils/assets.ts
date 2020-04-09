@@ -1,4 +1,4 @@
-const home = 'assets/background/home.jpg'
+const home = 'https://s1.ax1x.com/2020/04/09/G5TtZ4.jpg'
 const morning = 'assets/images/morning.png'
 const noon = 'assets/images/noon.png'
 const night = 'assets/images/night.png'
