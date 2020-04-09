@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { Fade } from '@components/core'
 
-const Wrapper = styled.div`
+const Wrapper = styled(Fade)`
   position: absolute;
   left:0;
   bottom:0;

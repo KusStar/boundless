@@ -6,7 +6,7 @@ import Background from '@components/Background'
 import Box from '@components/Box'
 import Status from '@components/status'
 import BottomBar from '@components/bottom'
-import Package from '@components/scenes/Package'
+import Scenes from '@components/scenes'
 import { InjectedPlayerProps, actions as playerActions } from '@utils/store/player'
 import { InjectedSystemProps, actions as systemActions } from '@utils/store/system'
 import { compose } from '@utils/helpers'
@@ -14,7 +14,13 @@ import { compose } from '@utils/helpers'
 type Props = InjectedPlayerProps & InjectedSystemProps
 
 const Home = (props: Props) => {
-  const { player, changeName, } = props;
+  const { onScene, system} = props;
+
+  const handleOnScene = (id: number) => {
+    const { scene } = system;
+    if (id === scene.id) id = -1;
+    onScene(id)
+  }
 
   return (
     <Container fullscreen>
@@ -22,9 +28,9 @@ const Home = (props: Props) => {
         <Background src={assets.home} />
         <Status />
         <Content>
-          <Package />
+          <Scenes />
         </Content>
-        <BottomBar />
+        <BottomBar onScene={handleOnScene} />
       </Box>
     </Container>
   )

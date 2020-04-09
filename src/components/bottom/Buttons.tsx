@@ -37,10 +37,16 @@ const Circle = styled.div`
   }
 `
 
-const Buttons = () => (
+interface Props {
+  onScene: (id: number) => void
+}
+
+const Buttons: React.FC<Props>= ({
+  onScene
+}) => (
   <Wrapper>
-    <Button src={assets.box}/>
-    <Button src={assets.story}/>
+    <Button src={assets.box} onClick={() => onScene(0)} />
+    <Button src={assets.story}  />
     <Button 
       src={assets.event} 
       style={{
@@ -56,6 +62,7 @@ const Buttons = () => (
         width: 40,
         bottom: 5,
       }}
+      onClick={() => onScene(1)}
     />
     <Circle />
   </Wrapper>

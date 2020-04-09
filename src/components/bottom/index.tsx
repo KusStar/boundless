@@ -3,9 +3,15 @@ import React from 'react';
 import Wrapper from './Wrapper'
 import Buttons from './Buttons'
 
-const BottomBar = () => (
+interface Props {
+  onScene: (id: number) => void
+}
+
+const BottomBar: React.FC<Props> = ({
+  onScene
+}) => (
   <Wrapper>
-    <Buttons />
+    <Buttons onScene={onScene}/>
   </Wrapper>
 )
 
