@@ -4,6 +4,8 @@ import { mobileMediaQuery } from '@utils/threshold'
 
 const Box = styled(Container)`
   width: 400px;
+  position: relative;
+  background: #111;
 
   @media ${mobileMediaQuery} {
     width: 100%;

@@ -1,11 +1,15 @@
 import Container from './Container'
-import Text from './Text'
+import Content from './Content'
 import Fade from './Fade'
+import Image from './Image'
 import Input from './Input'
+import Text from './Text'
 
 export {
-  Text,
   Container,
+  Content,
   Fade,
-  Input
+  Image,
+  Input,
+  Text,
 }
