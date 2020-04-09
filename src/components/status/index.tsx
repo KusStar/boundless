@@ -5,7 +5,7 @@ import Time from './Time'
 import Property from './Property'
 
 const Wrapper = styled(Container)`
-  height: 10%;
+  height: 80px;
   width: 100%;
   background: 0;
   position: absolute;

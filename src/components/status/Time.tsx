@@ -15,7 +15,11 @@ const Wrapper = styled.div`
 
 const Icon = styled(Image)`
   height: ${props => props.height || '26px'};
-  width: ${props => props.width || '26px'}
+  width: ${props => props.width || '26px'};
+  transition: all 0.3s;
+  &:hover {
+    transform: translate3d(0, -1px, 0);
+  }
 `
 
 const Time = () => (

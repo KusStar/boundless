@@ -18,7 +18,7 @@ const Home = (props: Props) => {
   return (
     <Container fullscreen>
       <Box>
-        <Background src={assets.home}/>
+        <Background src={assets.home} />
         <Status />
         <Content>
           <Text>
