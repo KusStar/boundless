@@ -29,6 +29,10 @@ const Time = () => (
     />
     <Icon 
       src={assets.noon}
+      style={{
+        position: 'relative',
+        bottom: -1.5,
+      }}
     />
     <Icon 
       src={assets.night}

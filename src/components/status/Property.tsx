@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 
 const Icon = styled(Image)`
   height: 57px;
-  width: 49px;
+  width: 49.25px;
   transition: all 0.3s;
   &:hover {
     transform: translate3d(0, -1px, 0);
