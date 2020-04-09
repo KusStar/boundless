@@ -1,4 +1,8 @@
 
+declare interface State {
+  system: System
+  player: Player
+}
 declare interface System {
   time: string
   scene: {
