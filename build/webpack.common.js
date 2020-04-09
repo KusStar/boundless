@@ -20,7 +20,7 @@ module.exports = {
       '@components': path.resolve(__dirname, '../src/components'),
       '@utils': path.resolve(__dirname, '../src/utils'),
     },
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.png']
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.png', 'jpg']
   },
   module: {
     rules: [
