@@ -11,17 +11,13 @@ const _readable = (time: number) => {
   return dayjs(time).format('周ddd HH:mm')
 }
 
-const _hour = (time: number) => {
-  return dayjs(time).get('hour')
-}
-
 const _period = (time: number) => {
-  const hour = _hour(time)
+  const hour = dayjs(time).get('hour')
 
   switch (true) {
-    case hour >= 3 && hour < 12:
+    case hour >= 3 && hour <= 9:
       return 'morning'
-    case hour >= 12 && hour < 18:
+    case hour > 9 && hour < 18:
       return 'noon'
     default:
       return 'night'
@@ -30,6 +26,5 @@ const _period = (time: number) => {
 
 export default { 
   readable: _readable,
-  hour: _hour,
   period: _period
 }
