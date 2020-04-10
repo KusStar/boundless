@@ -1,6 +1,8 @@
 const home = 'https://s1.ax1x.com/2020/04/09/G5TtZ4.jpg'
 const hospital = 'https://s1.ax1x.com/2020/04/10/GoOcTK.png'
 const door = 'https://s1.ax1x.com/2020/04/09/GI1Mz4.jpg'
+const logo = 'https://s1.ax1x.com/2020/04/10/GTKevd.png'
+const market = 'https://s1.ax1x.com/2020/04/10/GTUhdg.png'
 const morning = 'assets/images/morning.png'
 const noon = 'assets/images/noon.png'
 const night = 'assets/images/night.png'
@@ -37,5 +39,7 @@ export default {
   inbox,
   energy,
   heart,
-  mood
+  mood,
+  logo,
+  market
 }
