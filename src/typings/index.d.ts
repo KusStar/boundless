@@ -1,4 +1,6 @@
 
+declare type Route = 'Home' | 'Splash'
+
 declare interface State {
   system: System
   player: Player
