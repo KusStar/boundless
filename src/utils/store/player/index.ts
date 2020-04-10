@@ -1,25 +1,19 @@
+import { INITIAL_PLAYER_STATE } from '@utils/constants'
 
 export default { 
-  state: {
-    name: '王二',
-    health: 100,
-    energy: 100,
-    mood: 100,
-    food: 100,
-    money: 100,
-    mask: 100,
-  } as Player
+  state: INITIAL_PLAYER_STATE
 }
 
 export const actions = {
-  changeName: (state: State, name: string) => {
+  changeName: ({ player }: State, name: string) => {
     return { 
       player: {
-        ...state.player,
+        ...player,
         name
       }
      }
-  }
+  },
+  
 }
 
 export interface InjectedPlayerProps {

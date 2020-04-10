@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, Image } from '@components/core'
+import { Image } from '@components/core'
 import assets from '@utils/assets'
+import { EMPTY_OBJECT } from '@utils/constants'
 
 const Wrapper = styled.div`
   width: 100px;
@@ -53,12 +54,12 @@ const progressMap = {
     style: {
       height: 24,
       width: 24
-    },
+    } as React.CSSProperties,
   },
   energy: {
     src: assets.energy,
     color: '#F1CB50',
-    style: {},
+    style: EMPTY_OBJECT
   },
   mood:{
     src: assets.mood,

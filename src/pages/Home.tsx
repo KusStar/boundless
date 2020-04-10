@@ -9,23 +9,26 @@ import BottomBar from '@components/bottom'
 import Scenes from '@components/scenes'
 import { InjectedPlayerProps, actions as playerActions } from '@utils/store/player'
 import { InjectedSystemProps, actions as systemActions } from '@utils/store/system'
-import { compose } from '@utils/helpers'
+import { compose, isGameOver } from '@utils/helpers'
 
 type Props = InjectedPlayerProps & InjectedSystemProps
 
 const Home = (props: Props) => {
-  const { onScene, system, updateTime } = props;
+  const { onScene, system, updateTime, player } = props;
 
   useEffect(() => {
-    startCounter()
+    timeCounter()
   }, [])
 
-  const startCounter = () => {
-    if (system.time > 0) {
+  const timeCounter = () => {
+    const { isOver, type } = isGameOver(player);
+    if (!isOver) {
       setTimeout(() => {
         updateTime()
-        startCounter()
-      },  500)
+        timeCounter()
+      }, 1000)
+    } else {
+      console.log(type)
     }
   }
 

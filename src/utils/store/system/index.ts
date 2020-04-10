@@ -1,13 +1,9 @@
 import dayjs from 'dayjs'
+import { objectSum, playerEffectedResult } from '@utils/helpers'
+import { INITIAL_SYSTEM_STATE } from '@utils/constants'
 
 export default { 
-  state: {
-    time: 1579838400000,
-    scene: {
-      id: -1,
-      text: ''
-    }
-  } as System
+  state: INITIAL_SYSTEM_STATE
 }
 
 export const actions = {
@@ -17,19 +13,21 @@ export const actions = {
         ...system,
         scene: {
           id,
-          text: 'Package'
         }
       }
     }
   },
-  updateTime: ({ system }: State) => {
-    const oldTime = dayjs(system.time)
-    const newTime = oldTime.add(1, 'hour')
+  updateTime: ({ system, player }: State) => {
+    const old = dayjs(system.time)
+    const newTime = old.add(60, 'minute').unix() * 1000
+    const effect = playerEffectedResult(system.time, newTime, player.mood)
+    const effected = objectSum(player, effect)
     return {
       system: {
         ...system,
-        time: newTime.unix() * 1000
-      }
+        time: newTime
+      },
+      player: effected
     }
   }
 }
