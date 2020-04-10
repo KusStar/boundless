@@ -24,28 +24,14 @@ const Item = styled(Image)`
   }
 `
 
-const Package = () => {
+const Story = () => {
   return (
     <Col>
-      <Text>
-        asd
-      </Text>
-      <Row>
-        <Item src={assets.mask}/>
-        <Item src={assets.money} style={{
-          margin: 10,
-          marginBottom: 30,
-        }}/>
-        <Item src={assets.food}  style={{
-          height: 67,
-          width: 67
-        }}/>
-      </Row>
       <Image 
-        src={assets.largeBox}
+        src={assets.inbox}
       />
     </Col>
   )
 }
 
-export default Package;
+export default Story;

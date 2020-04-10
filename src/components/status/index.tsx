@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'unistore/react'
 import styled from 'styled-components';
 import { Container } from '@components/core'
+import { InjectedSystemProps, actions } from '@utils/store/system'
 import Time from './Time'
 import Property from './Property'
 
@@ -16,11 +18,13 @@ const Wrapper = styled(Container)`
   z-index: 2;
 `
 
-const Status = () => (
+const Status = (props: InjectedSystemProps) => (
   <Wrapper>
-    <Time />
+    <Time time={props.system.time}/>
     <Property />
   </Wrapper>
 )
 
-export default Status
+export default connect<{}, {}, {}, InjectedSystemProps>
+('system', actions)
+(Status)

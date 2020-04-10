@@ -41,29 +41,47 @@ interface Props {
   onScene: (id: number) => void
 }
 
+const buttons = [
+  { 
+    src: assets.box, 
+    id: 0 
+  }, 
+  { 
+    src: assets.story, 
+    id: 1 
+  }, 
+  { 
+    src: assets.event, 
+    id: 2,
+    style: {
+      height: 45,
+      width: 45,
+      bottom: 5
+    }
+  }, 
+  { 
+    src: assets.switcher, 
+    id: 3, 
+    style: {
+      height: 40,
+      width: 40,
+      bottom: 5,
+    } 
+  }, 
+]
+
 const Buttons: React.FC<Props>= ({
   onScene
 }) => (
   <Wrapper>
-    <Button src={assets.box} onClick={() => onScene(0)} />
-    <Button src={assets.story}  />
-    <Button 
-      src={assets.event} 
-      style={{
-        height: 40,
-        width: 40,
-        bottom: 5,
-      }}
-    />
-    <Button 
-      src={assets.switcher} 
-      style={{
-        height: 40,
-        width: 40,
-        bottom: 5,
-      }}
-      onClick={() => onScene(1)}
-    />
+    {buttons.map((button) => (
+      <Button 
+        src={button.src}
+        key={button.id}
+        style={button.style}
+        onClick={() => onScene(button.id)}
+      />
+    ))}
     <Circle />
   </Wrapper>
 )

@@ -1,44 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Image } from '@components/core'
-import assets from '@utils/assets'
+import { Text } from '@components/core'
+import timeFormatter from '@utils/time-formatter'
+import CurrentIcon from './CurrentIcon'
 
 const Wrapper = styled.div`
   height: 32px;
-  width: 106px;
+  width: 120px;
   background: #3F4044;
-  border-radius: 12px;
+  border-radius: 16px;
   display: flex;
+  padding: 0 6px;
   align-items: center;
   justify-content: space-around;
 `
 
-const Icon = styled(Image)`
-  height: ${props => props.height || '26px'};
-  width: ${props => props.width || '26px'};
-  transition: all 0.3s;
-  &:hover {
-    transform: translate3d(0, -1px, 0);
-  }
-`
+interface Props {
+  time: number
+}
 
-const Time = () => (
+const Time: React.FC<Props> = ({
+  time
+}) => (
   <Wrapper>
-    <Icon 
-      src={assets.morning}
+    <CurrentIcon 
+      time={time}
     />
-    <Icon 
-      src={assets.noon}
-      style={{
-        position: 'relative',
-        bottom: -1.5,
+    <Text style={{ 
+        fontSize: 14, 
+        transition: 'all 0.3s', 
       }}
-    />
-    <Icon 
-      src={assets.night}
-      height='18px'
-      width='18px'
-    />
+    >
+      {timeFormatter.readable(time) }
+    </Text>
   </Wrapper>
 )
 
