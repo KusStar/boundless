@@ -1,8 +1,6 @@
 import React from 'react';
-import { connect } from 'unistore/react'
 import styled from 'styled-components';
 import { Container } from '@components/core'
-import { InjectedSystemProps, actions } from '@utils/store/system'
 import Time from './Time'
 import Property from './Property'
 
@@ -18,13 +16,18 @@ const Wrapper = styled(Container)`
   z-index: 2;
 `
 
-const Status = (props: InjectedSystemProps) => (
-  <Wrapper>
-    <Time time={props.system.time}/>
-    <Property />
-  </Wrapper>
-)
+interface Props {
+  system: System
+  player: Player
+}
 
-export default connect<{}, {}, {}, InjectedSystemProps>
-('system', actions)
-(Status)
+const Status: React.FC<Props> = (props) => {
+  const { system, player } = props
+  return (
+    <Wrapper>
+      <Time time={system.time}/>
+      <Property player={player} />
+    </Wrapper>
+  )
+}
+export default Status

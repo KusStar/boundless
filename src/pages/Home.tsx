@@ -42,9 +42,12 @@ const Home = (props: Props) => {
     <Container fullscreen>
       <Box>
         <Background src={assets.home} />
-        <Status />
+        <Status 
+          system={system}
+          player={player}
+        />
         <Content>
-          <Scenes />
+          <Scenes system={system} />
         </Content>
         <BottomBar onScene={handleOnScene} />
       </Box>

@@ -24,8 +24,14 @@ const Icon = styled(Image)`
   }
 `
 
-const Property = () =>  {
+interface Props {
+  player: Player
+}
+
+const Property: React.FC<Props> = ({ player }) =>  {
   const [show, setShow] = useState<boolean>(false)
+  const { health, energy, mood } = player
+  
   return (
     <Manager>
       <Wrapper>
@@ -63,9 +69,9 @@ const Property = () =>  {
               }}
               data-placement={placement}
             >
-              <Progress type='health' value={80} />
-              <Progress type='energy' value={80} />
-              <Progress type='mood' value={80} />
+              <Progress type='health' value={health} />
+              <Progress type='energy' value={energy} />
+              <Progress type='mood' value={mood} />
             </Fade>
           )}
         </Popper>

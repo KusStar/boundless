@@ -1,6 +1,3 @@
-import { connect } from 'unistore/react'
-import { InjectedSystemProps, actions} from '@utils/store/system'
-
 import Package from './Package'
 import Story from './Story'
 import Switcher from './Switcher'
@@ -14,12 +11,13 @@ const sceneMap = [
   Switcher
 ]
 
-const Scenes = (props: InjectedSystemProps) => {
-  const { system } = props;
+interface Props {
+  system: System
+}
+
+const Scenes: React.FC<Props> = ({ system }) => {
   const { scene } = system;
   return sceneMap[scene.id] ? sceneMap[scene.id]() : null
 }
 
-export default connect<{}, {}, {}, InjectedSystemProps>
-('system', actions)
-(Scenes)
+export default Scenes

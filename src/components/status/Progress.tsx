@@ -23,7 +23,8 @@ const Line = styled.div<LineProps>`
   border-radius: 8px;
   position: absolute;
   background: ${props => props.color || '#000'};
-  opacity: ${props => props.opacity || 1}
+  opacity: ${props => props.opacity || 1};
+  transition: all 0.3s;
 `
 
 const Icon = styled(Image)`

@@ -7,17 +7,17 @@ dayjs.updateLocale('en', {
   weekdaysShort: ["日", "一", "二", "三", "四", "五", "六"]
 })
 
-const _readable = (time: number) => {
+const readable = (time: number) => {
   return dayjs(time).format('周ddd HH:mm')
 }
 
-const _period = (time: number) => {
+const period = (time: number) => {
   const hour = dayjs(time).get('hour')
 
   switch (true) {
-    case hour >= 3 && hour <= 9:
+    case hour >= 4 && hour <= 11:
       return 'morning'
-    case hour > 9 && hour < 18:
+    case hour > 11 && hour < 18:
       return 'noon'
     default:
       return 'night'
@@ -25,6 +25,6 @@ const _period = (time: number) => {
 }
 
 export default { 
-  readable: _readable,
-  period: _period
+  readable,
+  period
 }
