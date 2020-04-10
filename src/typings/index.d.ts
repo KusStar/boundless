@@ -4,7 +4,7 @@ declare interface State {
   player: Player
 }
 declare interface System {
-  time: string
+  time: number
   scene: {
     id: number
     text: string
