@@ -14,6 +14,9 @@ const money = 'assets/images/money.png'
 const mask = 'assets/images/mask.png'
 const largeBox = 'assets/images/large_box.png'
 const inbox = 'assets/images/inbox.png'
+const energy = 'assets/images/energy.png'
+const heart = 'assets/images/heart.png'
+const mood = 'assets/images/mood.png'
 
 export default {
   home,
@@ -31,5 +34,8 @@ export default {
   money,
   mask,
   largeBox,
-  inbox
+  inbox,
+  energy,
+  heart,
+  mood
 }
