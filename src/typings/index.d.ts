@@ -1,6 +1,10 @@
 
 declare type Route = 'Home' | 'Splash'
 
+declare interface StringKeyObject {
+  [key: string]: any
+}
+
 declare interface State {
   system: System
   player: Player
@@ -9,7 +13,6 @@ declare interface System {
   time: number
   scene: {
     id: number
-    text: string
   }
 }
 
