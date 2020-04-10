@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'unistore/react'
 import assets from '@utils/assets'
-import { Container, Content, Text } from '@components/core'
+import { Container, Content } from '@components/core'
 import Background from '@components/Background'
 import Box from '@components/Box'
 import Status from '@components/status'
@@ -14,7 +14,20 @@ import { compose } from '@utils/helpers'
 type Props = InjectedPlayerProps & InjectedSystemProps
 
 const Home = (props: Props) => {
-  const { onScene, system} = props;
+  const { onScene, system, updateTime } = props;
+
+  useEffect(() => {
+    startCounter()
+  }, [])
+
+  const startCounter = () => {
+    if (system.time > 0) {
+      setTimeout(() => {
+        updateTime()
+        startCounter()
+      },  500)
+    }
+  }
 
   const handleOnScene = (id: number) => {
     const { scene } = system;

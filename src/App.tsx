@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'unistore/react'
 import { Reset } from 'styled-reset'
 import { DefaultStyles } from '@utils/default-styles'
-import Home from '@pages/Home'
+import Router from '@pages/Router'
 import store from '@utils/store'
 
 const App: React.FC = () => {
@@ -11,7 +11,7 @@ const App: React.FC = () => {
       <Reset />
       <DefaultStyles />
       <Provider store={store}>
-        <Home />
+        <Router />
       </Provider>
     </>
   )
