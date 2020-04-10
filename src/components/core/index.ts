@@ -4,6 +4,7 @@ import Fade from './Fade'
 import Image from './Image'
 import Input from './Input'
 import Text from './Text'
+import Touchable from './Touchable'
 
 export {
   Container,
@@ -12,4 +13,5 @@ export {
   Image,
   Input,
   Text,
+  Touchable
 }
