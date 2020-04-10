@@ -29,6 +29,14 @@ export const actions = {
       },
       player: effected
     }
+  },
+  changeModal: ({ system }: State, target: Modal) => {
+    return {
+      system: {
+        ...system,
+        currentModal: target
+      }
+    }
   }
 }
 
@@ -36,4 +44,5 @@ export interface InjectedSystemProps {
   system: System,
   onScene: (id: number) => void
   updateTime: () => void
+  changeModal: (target: Modal) => void
 }

@@ -24,7 +24,7 @@ const Item = styled(Image)`
   }
 `
 
-const Story = () => {
+const Story: React.FC = () => {
   return (
     <Col>
       <Image 

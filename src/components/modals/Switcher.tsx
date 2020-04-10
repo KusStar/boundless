@@ -21,17 +21,25 @@ const Switcher = () => {
     <Wrapper style={{
       marginBottom: 30
     }}>
-      <Scene src={assets.door} style={{
-        position: 'absolute',
-        transform: 'translate3d(-40px, 0, 0) scale(0.9)',
-        opacity: 0.8
-      }}/>
-      <Scene src={assets.home} style={{
-        position: 'absolute',
-        transform: 'translate3d(40px, 0, 0) scale(0.9)',
-        opacity: 0.8
-      }}/>
-      <Scene src={assets.hospital}/>
+      <Scene 
+        src={assets.door} 
+        style={{
+          position: 'absolute',
+          transform: 'translate3d(-40px, 0, 0) scale(0.9)',
+          opacity: 0.8
+        }}
+      />
+      <Scene 
+        src={assets.home} 
+        style={{
+          position: 'absolute',
+          transform: 'translate3d(40px, 0, 0) scale(0.9)',
+          opacity: 0.8
+        }}
+      />
+      <Scene 
+        src={assets.hospital} 
+      />
     </Wrapper>
   )
 }

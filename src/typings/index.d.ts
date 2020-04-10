@@ -1,6 +1,8 @@
 
 declare type Route = 'Home' | 'Splash'
 
+declare type Modal = 'Package' | 'Story' | 'Event' | 'Switcher' | ''
+
 declare interface StringKeyObject {
   [key: string]: any
 }
@@ -14,6 +16,7 @@ declare interface System {
   scene: {
     id: number
   }
+  currentModal: Modal
 }
 
 declare interface Player extends PlayerEffectableProps {

@@ -4,14 +4,14 @@ import Wrapper from './Wrapper'
 import Buttons from './Buttons'
 
 interface Props {
-  onScene: (id: number) => void
+  onModal: (target: Modal) => void
 }
 
 const BottomBar: React.FC<Props> = ({
-  onScene
+  onModal
 }) => (
   <Wrapper>
-    <Buttons onScene={onScene}/>
+    <Buttons onModal={onModal}/>
   </Wrapper>
 )
 

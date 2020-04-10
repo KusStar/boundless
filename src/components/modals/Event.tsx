@@ -7,7 +7,7 @@ const Col = styled(Wrapper)`
   flex-direction: column;
 `
 
-const Story = () => {
+const Story: React.FC = () => {
   return (
     <Col>
       <Text>

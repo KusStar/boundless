@@ -24,22 +24,40 @@ const Item = styled(Image)`
   }
 `
 
-const Package = () => {
+const items = [
+  {
+    src: assets.mask,
+  },
+  {
+    src: assets.money,
+    style: {
+      margin: 10,
+      marginBottom: 30,
+    } as React.CSSProperties
+  },
+  {
+    src: assets.food,
+    style: {
+      height: 67,
+      width: 67
+    } as React.CSSProperties
+  },
+]
+
+const Package: React.FC = () => {
   return (
     <Col>
       <Text>
         asd
       </Text>
       <Row>
-        <Item src={assets.mask}/>
-        <Item src={assets.money} style={{
-          margin: 10,
-          marginBottom: 30,
-        }}/>
-        <Item src={assets.food}  style={{
-          height: 67,
-          width: 67
-        }}/>
+        {items.map((item) => (
+          <Item 
+            key={item.src}
+            src={item.src}
+            style={item.style}
+          />
+        ))}
       </Row>
       <Image
         style={{

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'unistore/react'
 import assets from '@utils/assets'
 import { Container, Content } from '@components/core'
@@ -14,7 +14,7 @@ import { compose, isGameOver } from '@utils/helpers'
 type Props = InjectedPlayerProps & InjectedSystemProps
 
 const Home = (props: Props) => {
-  const { onScene, system, updateTime, player } = props;
+  const { system, updateTime, player, changeModal } = props;
 
   useEffect(() => {
     timeCounter()
@@ -26,16 +26,15 @@ const Home = (props: Props) => {
       setTimeout(() => {
         updateTime()
         timeCounter()
-      }, 1000)
+      }, 500)
     } else {
       console.log(type)
     }
   }
 
-  const handleOnScene = (id: number) => {
-    const { scene } = system;
-    if (id === scene.id) id = -1;
-    onScene(id)
+  const handleOnModal = (target: Modal) => {
+    if (target === system.currentModal) target = ''
+    changeModal(target)
   }
 
   return (
@@ -47,9 +46,9 @@ const Home = (props: Props) => {
           player={player}
         />
         <Content>
-          <Modals system={system} />
+          <Modals currentModal={system.currentModal}/>
         </Content>
-        <BottomBar onScene={handleOnScene} />
+        <BottomBar onModal={handleOnModal} />
       </Box>
     </Container>
   )
