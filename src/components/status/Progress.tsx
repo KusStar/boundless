@@ -50,7 +50,10 @@ const progressMap = {
   health: {
     src: assets.heart,
     color: '#69E166',
-    style: {},
+    style: {
+      height: 24,
+      width: 24
+    },
   },
   energy: {
     src: assets.energy,
