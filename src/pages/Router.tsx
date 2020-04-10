@@ -4,13 +4,13 @@ import Home from './Home'
 import Splash from './Splash'
 
 const Router = () => {
-  const [route, setRoute] = useState<string>('Home')
+  const [route, setRoute] = useState<Route>('Home')
 
   const renderRoute = () => {
     switch (route) {
       case 'Home':
         return (
-          <Fade>
+          <Fade duration={800}>
             <Home />
           </Fade>
         )

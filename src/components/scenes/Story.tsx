@@ -28,6 +28,9 @@ const Story = () => {
   return (
     <Col>
       <Image 
+        style={{
+          height: '60%'
+        }}
         src={assets.inbox}
       />
     </Col>

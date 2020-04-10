@@ -1,10 +1,17 @@
 import React from 'react';
-import { Container } from '@components/core'
+import styled from 'styled-components';
+import { Container, Image } from '@components/core'
 import Box from '@components/Box'
+import assets from '@utils/assets'
 
 interface Props {
-  navigate: (route: string) => void
+  navigate: (route: Route) => void
 }
+
+const Logo = styled(Image)`
+  height: 595px;
+  width: 414px;
+`
 
 const Splash: React.FC<Props>= ({
   navigate
@@ -12,6 +19,9 @@ const Splash: React.FC<Props>= ({
   return (
     <Container fullscreen>
       <Box>
+        <Logo
+          src={assets.logo}
+        />
         <button
           onClick={() => navigate('Home')}
         >

@@ -56,7 +56,7 @@ const buttons = [
     style: {
       height: 45,
       width: 45,
-      bottom: 5
+      bottom: 2.5
     }
   }, 
   { 

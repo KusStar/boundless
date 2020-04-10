@@ -41,7 +41,11 @@ const Package = () => {
           width: 67
         }}/>
       </Row>
-      <Image 
+      <Image
+        style={{
+          height: 252,
+          width: 254
+        }}
         src={assets.largeBox}
       />
     </Col>

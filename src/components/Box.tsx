@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Container } from '@components/core'
-import { mobileMediaQuery } from '@utils/threshold'
+import { mobileMediaQuery, tabletMeidaQuery } from '@utils/threshold'
 
 const Box = styled(Container)`
   width: 400px;
@@ -9,6 +9,10 @@ const Box = styled(Container)`
 
   @media ${mobileMediaQuery} {
     width: 100%;
+  }
+
+  @media ${tabletMeidaQuery} {
+    width: 75%;
   }
 `
 
