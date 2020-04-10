@@ -47,6 +47,10 @@ const isGameOver = (player: Player) => {
   }
 }
 
+/**
+ * @private
+ * @param mood 
+ */
 const weighedMoodEffect = (mood: number) => {
   return (2 - mood / MOOD_LIMIT);
 }
@@ -56,11 +60,11 @@ const playerEffectedResult = (prev: number, next: number, mood: number) => {
   const nextPeriod = timeFormatter.period(next)
   const weight = weighedMoodEffect(mood)
   return prevPeriod !== nextPeriod 
-  ? {
-      energy: -10 * weight,
-      mood: -10
-    } 
-  : EMPTY_OBJECT
+    ? {
+        energy: -5 * weight,
+        mood: -2
+      } 
+    : EMPTY_OBJECT
 }
 
 export {
