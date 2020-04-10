@@ -48,7 +48,7 @@ const Property = () =>  {
               style={{
                 ...style, 
                 width: 150, 
-                height: 80,
+                height: 120,
                 right: 0, 
                 top: 10, 
                 textAlign:'center',
@@ -63,9 +63,9 @@ const Property = () =>  {
               }}
               data-placement={placement}
             >
-              <Progress color='#69E166' value={0.8} />
-              <Progress color='#F1CB50' value={0.8} />
-              <Progress color='#F4980C' value={0.8} />
+              <Progress type='health' value={80} />
+              <Progress type='energy' value={80} />
+              <Progress type='mood' value={80} />
             </Fade>
           )}
         </Popper>
