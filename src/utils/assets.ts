@@ -1,5 +1,5 @@
 const home = 'https://s1.ax1x.com/2020/04/09/G5TtZ4.jpg'
-const hospital = 'https://s1.ax1x.com/2020/04/09/GI1Zd0.jpg'
+const hospital = 'https://s1.ax1x.com/2020/04/10/GoOcTK.png'
 const door = 'https://s1.ax1x.com/2020/04/09/GI1Mz4.jpg'
 const morning = 'assets/images/morning.png'
 const noon = 'assets/images/noon.png'
@@ -13,6 +13,7 @@ const food = 'assets/images/food.png'
 const money = 'assets/images/money.png'
 const mask = 'assets/images/mask.png'
 const largeBox = 'assets/images/large_box.png'
+const inbox = 'assets/images/inbox.png'
 
 export default {
   home,
@@ -29,5 +30,6 @@ export default {
   food,
   money,
   mask,
-  largeBox
+  largeBox,
+  inbox
 }
