@@ -3,9 +3,9 @@ import { mobileMediaQuery } from '@utils/threshold'
 
 const Text = styled.p`
   color: #fff;
-  font-size: 1.2rem;
-  line-height: 1.5rem;
-  font-family: sans-serif;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  font-family: PingFang SC, sans-serif;
   white-space: pre-line;
   letter-spacing: 0;
 
