@@ -6,7 +6,7 @@ interface Props {
   navigate: (route: string) => void
 }
 
-const Splash = ({
+const Splash: React.FC<Props>= ({
   navigate
 }) => {
   return (

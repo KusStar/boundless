@@ -4,13 +4,15 @@ import Home from './Home'
 import Splash from './Splash'
 
 const Router = () => {
-  const [route, setRoute] = useState<string>('Splash')
+  const [route, setRoute] = useState<string>('Home')
 
   const renderRoute = () => {
     switch (route) {
       case 'Home':
         return (
-          <Home />
+          <Fade>
+            <Home />
+          </Fade>
         )
       case 'Splash':
         return (
@@ -19,11 +21,7 @@ const Router = () => {
     }
   }
 
-  return (
-    <Fade>
-      {renderRoute()}
-    </Fade>
-  )
+  return renderRoute()
 }
 
 export default Router
