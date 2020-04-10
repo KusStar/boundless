@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Image } from '@components/core'
+import { Image, Touchable } from '@components/core'
 import assets from '@utils/assets'
-
 
 const Wrapper = styled.div`
   display: flex;
@@ -13,7 +12,7 @@ const Wrapper = styled.div`
   bottom: 5%;
 `
 
-const Button = styled(Image)`
+const Icon = styled(Image)`
   height: 50px;
   width: 50px;
   transition: all 0.3s;
@@ -22,6 +21,8 @@ const Button = styled(Image)`
     transform: translate3d(0, -1px, 0);
   }
 `
+
+
 
 const Circle = styled.div`
   height: 60px;
@@ -37,22 +38,19 @@ const Circle = styled.div`
   }
 `
 
-interface Props {
-  onScene: (id: number) => void
-}
 
 const buttons = [
   { 
     src: assets.box, 
-    id: 0 
+    modal: 'Package' as Modal
   }, 
   { 
     src: assets.story, 
-    id: 1 
+    modal: 'Story' as Modal,
   }, 
   { 
     src: assets.event, 
-    id: 2,
+    modal: 'Event' as Modal,
     style: {
       height: 45,
       width: 45,
@@ -61,7 +59,7 @@ const buttons = [
   }, 
   { 
     src: assets.switcher, 
-    id: 3, 
+    modal: 'Switcher' as Modal,
     style: {
       height: 40,
       width: 40,
@@ -70,17 +68,24 @@ const buttons = [
   }, 
 ]
 
+interface Props {
+  onModal: (target: Modal) => void
+}
+
 const Buttons: React.FC<Props>= ({
-  onScene
+  onModal
 }) => (
   <Wrapper>
     {buttons.map((button) => (
-      <Button 
-        src={button.src}
-        key={button.id}
-        style={button.style}
-        onClick={() => onScene(button.id)}
-      />
+      <Touchable
+        onClick={() => onModal(button.modal)}
+      >
+        <Icon
+          src={button.src}
+          key={button.modal}
+          style={button.style}
+        />
+      </Touchable>
     ))}
     <Circle />
   </Wrapper>
