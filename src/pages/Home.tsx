@@ -6,7 +6,7 @@ import Background from '@components/Background'
 import Box from '@components/Box'
 import Status from '@components/status'
 import BottomBar from '@components/bottom'
-import Scenes from '@components/scenes'
+import Modals from '@components/modals'
 import { InjectedPlayerProps, actions as playerActions } from '@utils/store/player'
 import { InjectedSystemProps, actions as systemActions } from '@utils/store/system'
 import { compose, isGameOver } from '@utils/helpers'
@@ -47,7 +47,7 @@ const Home = (props: Props) => {
           player={player}
         />
         <Content>
-          <Scenes system={system} />
+          <Modals system={system} />
         </Content>
         <BottomBar onScene={handleOnScene} />
       </Box>
