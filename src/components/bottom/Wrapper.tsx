@@ -13,7 +13,7 @@ const Outside = styled(Container)`
   );
   position: absolute;
   bottom: 0;
-  z-index: 2;
+  z-index: 10;
 `
 
 const Inside = styled(Container)`
