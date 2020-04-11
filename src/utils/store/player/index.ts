@@ -13,7 +13,6 @@ export const actions = {
       }
      }
   },
-  
 }
 
 export interface InjectedPlayerProps {

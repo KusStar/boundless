@@ -4,14 +4,14 @@ import { Container, Image } from '@components/core'
 import Box from '@components/Box'
 import assets from '@utils/assets'
 
-interface Props {
-  navigate: (route: Route) => void
-}
-
 const Logo = styled(Image)`
   height: 595px;
   width: 414px;
 `
+
+interface Props {
+  navigate: (route: Route) => void
+}
 
 const Splash: React.FC<Props>= ({
   navigate

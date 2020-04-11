@@ -6,7 +6,8 @@ const INITIAL_SYSTEM_STATE: System = {
   time: 1579820400000, // 2019-12-24 07:00:00
   scene: {
     id: -1,
-  }
+  },
+  currentModal: ''
 }
 
 const INITIAL_PLAYER_STATE: Player = {

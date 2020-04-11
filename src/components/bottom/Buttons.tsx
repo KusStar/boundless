@@ -22,8 +22,6 @@ const Icon = styled(Image)`
   }
 `
 
-
-
 const Circle = styled.div`
   height: 60px;
   width: 60px;
