@@ -28,13 +28,15 @@ const Item = styled(Image)`
 const items = [
   {
     src: assets.mask,
+    sound: 'hit'
   },
   {
     src: assets.money,
     style: {
       margin: 10,
       marginBottom: 30,
-    } as React.CSSProperties
+    } as React.CSSProperties,
+    sound: 'coin'
   },
   {
     src: assets.food,
@@ -42,6 +44,7 @@ const items = [
       height: 67,
       width: 67
     } as React.CSSProperties,
+    sound: 'eat'
   },
 ]
 
@@ -51,7 +54,7 @@ const Package: React.FC = () => {
       <Row>
         {items.map((item) => (
           <Touchable
-            onClick={() => launchpad.fire('eat')}
+            onClick={() => launchpad.fire(item.sound)}
           >
             <Item 
               key={item.src}
