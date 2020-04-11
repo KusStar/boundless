@@ -3,6 +3,18 @@ const resources = {
     src: 'assets/sound/eat.mp3',
     times: 3
   },
+  coin: {
+    src: 'assets/sound/coin.wav',
+    times: 1
+  },
+  hit: {
+    src: 'assets/sound/hit.mp3',
+    times: 1
+  },
+  end: {
+    src: 'assets/sound/died.m4a',
+    times: 1
+  },
   doorOpen: {
     src: 'assets/sound/door_open.mp3',
     times: 1
