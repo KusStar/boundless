@@ -19,7 +19,7 @@ export const actions = {
   },
   updateTime: ({ system, player }: State) => {
     const old = dayjs(system.time)
-    const newTime = old.add(60, 'minute').unix() * 1000
+    const newTime = old.add(3, 'hour').unix() * 1000
     const effect = playerEffectedResult(system.time, newTime, player.mood)
     const effected = objectSum(player, effect)
     return {

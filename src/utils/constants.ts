@@ -3,7 +3,7 @@ const MOOD_LIMIT = 100;
 const EMPTY_OBJECT = Object.create(null)
 
 const INITIAL_SYSTEM_STATE: System = {
-  time: 1579820400000, // 2019-12-24 07:00:00
+  time: 1577142000000, // 2019-12-24 07:00:00
   scene: {
     id: -1,
   },

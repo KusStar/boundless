@@ -20,8 +20,8 @@ interface Props {
 }
 
 const endTypeMap = {
-  'health': '你因生命过于脆弱而离开',
-  'energy': '你因不愿进食而失去了生命',
+  'health': '你因生命力消逝而离开了人世',
+  'energy': '你因拒绝进食而离开了人世',
   '': ''
 }
 
