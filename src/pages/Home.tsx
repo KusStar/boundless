@@ -7,6 +7,7 @@ import Box from '@components/Box'
 import Status from '@components/status'
 import BottomBar from '@components/bottom'
 import Modals from '@components/modals'
+import Overlay from '@components/Overlay'
 import { InjectedPlayerProps, actions as playerActions } from '@utils/store/player'
 import { InjectedSystemProps, actions as systemActions } from '@utils/store/system'
 import { compose, isGameOver } from '@utils/helpers'
@@ -57,6 +58,7 @@ const Home = (props: Props) => {
     <Container fullscreen>
       <Box>
         <Background src={assets.home} />
+        <Overlay time={system.time} />
         <Status 
           system={system}
           player={player}
