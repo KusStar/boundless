@@ -6,7 +6,7 @@ declare type Modal = 'Package' | 'Story' | 'Event' | 'Switcher' | ''
 declare type Sound = 'eat' | 'doorOpen' | 'doorClose' 
   | 'chestOpen' | 'chestClose' | 'coin' | 'hit' | 'end'
 
-declare type Sound = 'eat' | 'doorOpen' | 'doorClose' | 'chestOpen' | 'chestClose'
+declare type EndType = 'health' | 'energy' |  ''
 
 declare interface StringKeyObject {
   [key: string]: any

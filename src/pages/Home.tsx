@@ -12,10 +12,14 @@ import { InjectedSystemProps, actions as systemActions } from '@utils/store/syst
 import { compose, isGameOver } from '@utils/helpers'
 import launchpad from '@utils/launchpad'
 
-type Props = InjectedPlayerProps & InjectedSystemProps
+interface HomeProps {
+  onEnd: (type: EndType) => void
+}
+
+type Props = HomeProps & InjectedPlayerProps & InjectedSystemProps
 
 const Home = (props: Props) => {
-  const { system, updateTime, player, changeModal } = props;
+  const { system, updateTime, player, changeModal, onEnd } = props;
 
   useEffect(() => {
     timeCounter()
@@ -31,10 +35,10 @@ const Home = (props: Props) => {
       setTimeout(() => {
         updateTime()
         timeCounter()
-      }, 500)
+      }, 1000)
     } else {
-      launchpad.bgmStop()
-      console.log(type)
+      onEnd(type as EndType)
+      launchpad.fire('end')
     }
   }
 
@@ -66,7 +70,7 @@ const Home = (props: Props) => {
   )
 }
 
-export default connect<{}, {}, {}, Props>(
+export default connect<HomeProps, {}, {}, Props>(
   ['player', 'system'], 
   compose(playerActions, systemActions)
 )(Home)
