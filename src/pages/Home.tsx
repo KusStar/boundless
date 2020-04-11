@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import { connect } from 'unistore/react'
 import assets from '@utils/assets'
 import { Container, Content } from '@components/core'
@@ -10,6 +10,7 @@ import Modals from '@components/modals'
 import { InjectedPlayerProps, actions as playerActions } from '@utils/store/player'
 import { InjectedSystemProps, actions as systemActions } from '@utils/store/system'
 import { compose, isGameOver } from '@utils/helpers'
+import launchpad from '@utils/launchpad'
 
 type Props = InjectedPlayerProps & InjectedSystemProps
 
@@ -20,6 +21,10 @@ const Home = (props: Props) => {
     timeCounter()
   }, [])
 
+  useLayoutEffect(() => {
+    launchpad.bgmStart()
+  }, [])
+
   const timeCounter = () => {
     const { isOver, type } = isGameOver(player);
     if (!isOver) {
@@ -28,13 +33,20 @@ const Home = (props: Props) => {
         timeCounter()
       }, 500)
     } else {
+      launchpad.bgmStop()
       console.log(type)
     }
   }
 
   const handleOnModal = (target: Modal) => {
-    if (target === system.currentModal) target = ''
+    let soundName: Sound = 'doorOpen'
+    if (target === system.currentModal) { 
+      target = ''
+      soundName = 'doorClose'
+    }
     changeModal(target)
+
+    launchpad.fire(soundName)
   }
 
   return (

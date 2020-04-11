@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Image, Text } from '@components/core'
+import { Image, Text, Touchable } from '@components/core'
 import Wrapper from './Wrapper'
 import assets from '@utils/assets'
+import launchpad from '@utils/launchpad'
 
 const Col = styled(Wrapper)`
   flex-direction: column;
@@ -40,23 +41,24 @@ const items = [
     style: {
       height: 67,
       width: 67
-    } as React.CSSProperties
+    } as React.CSSProperties,
   },
 ]
 
 const Package: React.FC = () => {
   return (
     <Col>
-      <Text>
-        asd
-      </Text>
       <Row>
         {items.map((item) => (
-          <Item 
-            key={item.src}
-            src={item.src}
-            style={item.style}
-          />
+          <Touchable
+            onClick={() => launchpad.fire('eat')}
+          >
+            <Item 
+              key={item.src}
+              src={item.src}
+              style={item.style}
+            />
+          </Touchable>
         ))}
       </Row>
       <Image
@@ -66,6 +68,9 @@ const Package: React.FC = () => {
         }}
         src={assets.largeBox}
       />
+      <Text>
+        asd
+      </Text>
     </Col>
   )
 }

@@ -8,7 +8,7 @@ interface Props {
   currentModal: Modal
 }
 
-const Modals = ({ currentModal }: Props) => {
+const Modals: React.FC<Props> = ({ currentModal }) => {
 
   const renderModal = () => {
     switch (currentModal) {
