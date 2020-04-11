@@ -3,30 +3,13 @@ import styled from 'styled-components'
 import { Image } from '@components/core'
 import assets from '@utils/assets'
 import { EMPTY_OBJECT } from '@utils/constants'
+import Bar from './Bar'
 
 const Wrapper = styled.div`
-  width: 100px;
-  height: 12px;
-  border-radius: 8px;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
-
-interface LineProps {
-  value?: number
-  opacity?: number
-  color?: string
-}
-
-const Line = styled.div<LineProps>`
-  height: 100%;
-  width: ${props => (props.value || 100)+ '%'};
-  border-radius: 8px;
-  position: absolute;
-  background: ${props => props.color || '#000'};
-  opacity: ${props => props.opacity || 1};
-  transition: all 0.3s;
-`
-
 const Icon = styled(Image)`
   height: 20px;
   width: 20px;
@@ -79,19 +62,12 @@ const Progress: React.FC<Props> = ({
   const target = progressMap[type]
   const color = target.color
   return (
-    <div style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center'
-    }}>
+    <Wrapper>
       <IconContainer>
         <Icon src={target.src} style={target.style} />
       </IconContainer>
-      <Wrapper>
-        <Line opacity={0.5} color={color} />
-        <Line color={color} value={value} />
-      </Wrapper>
-    </div>
+      <Bar color={color} value={value}/>
+    </Wrapper>
   )
 }
 

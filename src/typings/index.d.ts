@@ -3,6 +3,8 @@ declare type Route = 'Home' | 'Splash'
 
 declare type Modal = 'Package' | 'Story' | 'Event' | 'Switcher' | ''
 
+declare type Sound = 'eat' | 'doorOpen' | 'doorClose' | 'chestOpen' | 'chestClose'
+
 declare interface StringKeyObject {
   [key: string]: any
 }
