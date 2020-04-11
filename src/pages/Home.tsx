@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from 'react'
+import React, { useEffect, useLayoutEffect, memo, useRef } from 'react'
 import { connect } from 'unistore/react'
 import assets from '@utils/assets'
 import { Container, Content } from '@components/core'
@@ -12,6 +12,8 @@ import { InjectedPlayerProps, actions as playerActions } from '@utils/store/play
 import { InjectedSystemProps, actions as systemActions } from '@utils/store/system'
 import { compose, isGameOver } from '@utils/helpers'
 import launchpad from '@utils/launchpad'
+import store from '@utils/store'
+
 
 interface HomeProps {
   onEnd: (type: EndType) => void
@@ -19,28 +21,39 @@ interface HomeProps {
 
 type Props = HomeProps & InjectedPlayerProps & InjectedSystemProps
 
-const Home = (props: Props) => {
-  const { system, updateTime, player, changeModal, onEnd, effectPlayer } = props;
+const Home = memo((props: Props) => {
+  const { system, updateTime,
+    player, changeModal, onEnd, effectPlayer } = props;
+  
+  const unsubscribe =  useRef<any>(null)
+  const timer = useRef<any>(null)
 
   useEffect(() => {
     timeCounter()
+    unsubscribe.current = store.subscribe( state => checkOver(state.player) );
   }, [])
 
   useLayoutEffect(() => {
     launchpad.bgmStart()
   }, [])
 
-  const timeCounter = () => {
+  const checkOver = (player: Player) => {
     const { isOver, type } = isGameOver(player);
-    if (!isOver) {
-      setTimeout(() => {
-        updateTime()
-        timeCounter()
-      }, 1000)
-    } else {
+    if (isOver) {
+      timer.current && clearInterval(timer.current)
+      if (unsubscribe.current) {
+        unsubscribe.current()
+        unsubscribe.current = null
+      }
       onEnd(type as EndType)
       launchpad.fire('end')
     }
+  }
+
+  const timeCounter = () => {
+    timer.current = setInterval(() => {
+      updateTime()
+    }, 1000)
   }
 
   const handleOnModal = (target: Modal) => {
@@ -74,7 +87,7 @@ const Home = (props: Props) => {
       </Box>
     </Container>
   )
-}
+})
 
 export default connect<HomeProps, {}, {}, Props>(
   ['player', 'system'], 

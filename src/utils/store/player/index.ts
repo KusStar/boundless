@@ -1,5 +1,4 @@
 import { INITIAL_PLAYER_STATE } from '@utils/constants'
-import { objectSum } from '@utils/helpers'
 import { getEffected } from './effect'
 
 export default { 
