@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { mobileMediaQuery } from '@utils/threshold'
+import { MOBILE_MEDIA_QUERY } from '@utils/constants'
 
 const Text = styled.p`
   color: #fff;
@@ -9,7 +9,7 @@ const Text = styled.p`
   white-space: pre-line;
   letter-spacing: 0;
 
-  @media ${mobileMediaQuery} {
+  @media ${MOBILE_MEDIA_QUERY} {
     font-size: 1rem;
     line-height: 1.5rem;
   }

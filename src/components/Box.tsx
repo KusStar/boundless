@@ -1,17 +1,17 @@
 import styled from 'styled-components'
 import { Container } from '@components/core'
-import { mobileMediaQuery, tabletMeidaQuery } from '@utils/threshold'
+import { MOBILE_MEDIA_QUERY, TABLET_MEDIA_QUERY } from '@utils/constants'
 
 const Box = styled(Container)`
   width: 400px;
   position: relative;
   background: #111;
 
-  @media ${mobileMediaQuery} {
+  @media ${MOBILE_MEDIA_QUERY} {
     width: 100%;
   }
 
-  @media ${tabletMeidaQuery} {
+  @media ${TABLET_MEDIA_QUERY} {
     width: 75%;
   }
 `
