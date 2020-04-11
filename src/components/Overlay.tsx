@@ -14,7 +14,7 @@ const overlayOpacity = (time: number) => {
     case 'noon':
       return 0
     case 'night':
-      return 0.7
+      return 0.5
   }
 }
 
