@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Image, Text, Touchable } from '@components/core'
-import Wrapper from './Wrapper'
+import { Image, Text as OriginalText, Touchable } from '@components/core'
+import Bar from '@components/Bar'
 import assets from '@utils/assets'
 import launchpad from '@utils/launchpad'
+import Wrapper from './Wrapper'
 
 const Col = styled(Wrapper)`
   flex-direction: column;
@@ -25,55 +26,94 @@ const Item = styled(Image)`
   }
 `
 
-const items = [
+const Text = styled(OriginalText)`
+  width: 50px;
+  margin-right: 5px;
+`
+interface Item {
+  key: keyof typeof assets
+  sound: Sound
+  style?: React.CSSProperties
+  name: string
+  color: string
+}
+
+const items: Item[] = [
   {
-    src: assets.mask,
-    sound: 'hit'
+    key: 'mask',
+    sound: 'hit',
+    name: '口罩',
+    color: '#fff',
   },
   {
-    src: assets.money,
+    key: 'money',
     style: {
       margin: 10,
       marginBottom: 30,
     } as React.CSSProperties,
-    sound: 'coin'
+    sound: 'coin',
+    name: '金钱',
+    color: '#fff',
   },
   {
-    src: assets.food,
+    key: 'food',
     style: {
       height: 67,
       width: 67
     } as React.CSSProperties,
-    sound: 'eat'
+    sound: 'eat',
+    name: '食物',
+    color: '#fff',
   },
 ]
 
-const Package: React.FC = () => {
+interface Props {
+  effectPlayer: (effect: Effect) => void
+  player: Player
+}
+
+const Package: React.FC<Props> = ({
+  effectPlayer,
+  player
+}) => {
+
+  const onItem = (item: Item) => {
+    const { sound, key } = item;
+    effectPlayer(key)
+    launchpad.fire(sound)
+  }
+
   return (
     <Col>
       <Row>
         {items.map((item) => (
           <Touchable
-            onClick={() => launchpad.fire(item.sound)}
+            key={item.key}
+            onClick={() => onItem(item)}
           >
             <Item 
-              key={item.src}
-              src={item.src}
+              src={assets[item.key]}
               style={item.style}
             />
           </Touchable>
         ))}
       </Row>
-      <Image
-        style={{
-          height: 252,
-          width: 254
-        }}
-        src={assets.largeBox}
-      />
-      <Text>
-        asd
-      </Text>
+      {items.map((item => (
+        <Row
+          key={item.key}
+          style={{
+            marginTop: 10
+          }}
+        >
+          <Text>
+            {item.name}
+          </Text>
+          <Bar 
+            color={item.color}
+            value={player[item.key]}
+          />
+      </Row>
+      )))}
     </Col>
   )
 }

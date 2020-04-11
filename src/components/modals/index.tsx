@@ -6,14 +6,25 @@ import Event from './Event'
 
 interface Props {
   currentModal: Modal
+  effectPlayer: (type: EffectType) => void
+  player: Player
 }
 
-const Modals: React.FC<Props> = ({ currentModal }) => {
+const Modals: React.FC<Props> = ({ 
+  currentModal, 
+  effectPlayer,
+  player
+}) => {
 
   const renderModal = () => {
     switch (currentModal) {
       case 'Package':
-        return <Package />
+        return (
+        <Package 
+          effectPlayer={effectPlayer} 
+          player={player}
+        />
+        )
       case 'Story':
         return <Story />
       case 'Switcher':

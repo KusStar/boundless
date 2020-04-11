@@ -19,7 +19,7 @@ interface HomeProps {
 type Props = HomeProps & InjectedPlayerProps & InjectedSystemProps
 
 const Home = (props: Props) => {
-  const { system, updateTime, player, changeModal, onEnd } = props;
+  const { system, updateTime, player, changeModal, onEnd, effectPlayer } = props;
 
   useEffect(() => {
     timeCounter()
@@ -62,7 +62,11 @@ const Home = (props: Props) => {
           player={player}
         />
         <Content>
-          <Modals currentModal={system.currentModal}/>
+          <Modals
+            currentModal={system.currentModal}
+            effectPlayer={effectPlayer}
+            player={player}
+          />
         </Content>
         <BottomBar onModal={handleOnModal} />
       </Box>

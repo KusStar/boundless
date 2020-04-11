@@ -8,6 +8,8 @@ declare type Sound = 'eat' | 'doorOpen' | 'doorClose'
 
 declare type EndType = 'health' | 'energy' |  ''
 
+declare type EffectType = 'mask' | 'money' | 'food'
+
 declare interface StringKeyObject {
   [key: string]: any
 }

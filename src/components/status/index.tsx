@@ -13,7 +13,7 @@ const Wrapper = styled(Container)`
   flex-direction: row;
   justify-content: space-between;
   padding: 0 12px;
-  z-index: 5;
+  z-index: 100;
 `
 
 interface Props {

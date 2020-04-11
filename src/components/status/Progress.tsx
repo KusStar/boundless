@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Image } from '@components/core'
 import assets from '@utils/assets'
 import { EMPTY_OBJECT } from '@utils/constants'
-import Bar from './Bar'
+import Bar from '@components/Bar'
 
 const Wrapper = styled.div`
   display: flex;
