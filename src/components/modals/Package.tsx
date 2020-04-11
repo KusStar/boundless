@@ -5,6 +5,7 @@ import Bar from '@components/Bar'
 import assets from '@utils/assets'
 import launchpad from '@utils/launchpad'
 import Wrapper from './Wrapper'
+import { Sound, EffectType } from '@utils/enums'
 
 const Col = styled(Wrapper)`
   flex-direction: column;
@@ -31,7 +32,7 @@ const Text = styled(OriginalText)`
   margin-right: 5px;
 `
 interface Item {
-  key: keyof typeof assets
+  key: string
   sound: Sound
   style?: React.CSSProperties
   name: string
@@ -41,7 +42,7 @@ interface Item {
 const items: Item[] = [
   {
     key: 'mask',
-    sound: 'hit',
+    sound: Sound.Hit,
     name: '口罩',
     color: '#fff',
   },
@@ -51,7 +52,7 @@ const items: Item[] = [
       margin: 10,
       marginBottom: 30,
     } as React.CSSProperties,
-    sound: 'coin',
+    sound: Sound.Coin,
     name: '金钱',
     color: '#fff',
   },
@@ -61,14 +62,14 @@ const items: Item[] = [
       height: 67,
       width: 67
     } as React.CSSProperties,
-    sound: 'eat',
+    sound: Sound.Eat,
     name: '食物',
     color: '#fff',
   },
 ]
 
 interface Props {
-  effectPlayer: (effect: Effect) => void
+  effectPlayer: (effect: EffectType) => void
   player: Player
 }
 
@@ -79,7 +80,7 @@ const Package: React.FC<Props> = ({
 
   const onItem = (item: Item) => {
     const { sound, key } = item;
-    effectPlayer(key)
+    effectPlayer(key as EffectType)
     launchpad.fire(sound)
   }
 

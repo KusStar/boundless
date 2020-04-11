@@ -1,6 +1,7 @@
 import dayjs from 'dayjs'
 import { objectSum, playerEffectedResult } from '@utils/helpers'
 import { INITIAL_SYSTEM_STATE } from '@utils/constants'
+import { Modal } from '@utils/enums'
 
 export default { 
   state: INITIAL_SYSTEM_STATE

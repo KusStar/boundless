@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Container } from '@components/core'
 import timeFormatter from '@utils/time-formatter'
+import { Period } from '@utils/enums'
 
 interface Props {
   time: number
@@ -9,11 +10,11 @@ interface Props {
 const overlayOpacity = (time: number) => {
   const period = timeFormatter.period(time)
   switch (period) {
-    case 'morning': 
+    case Period.Morning: 
       return 0.3
-    case 'noon':
+    case Period.Noon:
       return 0
-    case 'night':
+    case Period.Night:
       return 0.5
   }
 }

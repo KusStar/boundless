@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 import updateLocale from 'dayjs/plugin/updateLocale'
+import { Period } from './enums'
 
 dayjs.extend(updateLocale)
 
@@ -15,16 +16,16 @@ const readableDate = (time: number) => {
   return dayjs(time).format('MMM DD, YYYY')
 }
 
-const period = (time: number) => {
+const period = (time: number): Period => {
   const hour = dayjs(time).get('hour')
 
   switch (true) {
     case hour >= 4 && hour <= 11:
-      return 'morning'
+      return Period.Morning
     case hour > 11 && hour < 18:
-      return 'noon'
+      return Period.Noon
     default:
-      return 'night'
+      return Period.Night
   }
 }
 

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Container, Image } from '@components/core'
 import Box from '@components/Box'
 import assets from '@utils/assets'
+import { Route } from '@utils/enums';
 
 const Logo = styled(Image)`
   height: 595px;
@@ -23,7 +24,7 @@ const Splash: React.FC<Props>= ({
           src={assets.logo}
         />
         <button
-          onClick={() => navigate('Home')}
+          onClick={() => navigate(Route.Home)}
         >
           开始
         </button>

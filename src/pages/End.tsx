@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container, Text, Button, Fade } from '@components/core'
 import Box from '@components/Box'
+import { EndType } from '@utils/enums';
 
 const Title = styled.p`
   font-size: 40px;
@@ -20,9 +21,9 @@ interface Props {
 }
 
 const endTypeMap = {
-  'health': '你因生命力消逝而离开了人世',
-  'energy': '你因拒绝进食而离开了人世',
-  '': ''
+  [EndType.Health]: '你因生命力消逝而离开了人世',
+  [EndType.Energy]: '你因拒绝进食而离开了人世',
+  [EndType.Unknown]: ''
 }
 
 const End: React.FC<Props>= ({

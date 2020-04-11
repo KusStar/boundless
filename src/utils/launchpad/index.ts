@@ -1,4 +1,5 @@
 import resources from './resources'
+import { Sound } from '@utils/enums'
 
 const audio = new Audio()
 const bgmAudio = new Audio()

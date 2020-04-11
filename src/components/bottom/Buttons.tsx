@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Image, Touchable } from '@components/core'
 import assets from '@utils/assets'
+import { Modal } from '@utils/enums'
 
 const Wrapper = styled.div`
   display: flex;
@@ -40,15 +41,15 @@ const Circle = styled.div`
 const buttons = [
   { 
     src: assets.box, 
-    modal: 'Package' as Modal
+    modal: Modal.Package,
   }, 
   { 
     src: assets.story, 
-    modal: 'Story' as Modal,
+    modal: Modal.Story,
   }, 
   { 
     src: assets.event, 
-    modal: 'Event' as Modal,
+    modal: Modal.Event,
     style: {
       height: 45,
       width: 45,
@@ -57,7 +58,7 @@ const buttons = [
   }, 
   { 
     src: assets.switcher, 
-    modal: 'Switcher' as Modal,
+    modal: Modal.Switcher,
     style: {
       height: 40,
       width: 40,

@@ -1,5 +1,6 @@
 import timeFormatter from '@utils/time-formatter'
 import { MOOD_LIMIT, EMPTY_OBJECT } from '@utils/constants'
+import { EndType } from './enums'
 
 const compose = (...args: object[]) => {
   return args.reduce((acc: object, arg: object) => 
@@ -27,14 +28,14 @@ const isGameOver = (player: Player) => {
     energy,
   } = player
   let isOver = true
-  let type = ''
+  let type = EndType.Unknown
 
   switch (true) {
     case health <= 0:
-      type = 'health'
+      type = EndType.Health
       break;
     case energy <= 0:
-      type = 'energy'
+      type = EndType.Energy
       break;
     default:
       isOver = false

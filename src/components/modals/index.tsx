@@ -3,6 +3,7 @@ import Package from './Package'
 import Story from './Story'
 import Switcher from './Switcher'
 import Event from './Event'
+import { Modal, EffectType } from '@utils/enums'
 
 interface Props {
   currentModal: Modal
@@ -18,18 +19,18 @@ const Modals: React.FC<Props> = ({
 
   const renderModal = () => {
     switch (currentModal) {
-      case 'Package':
+      case Modal.Package:
         return (
         <Package 
           effectPlayer={effectPlayer} 
           player={player}
         />
         )
-      case 'Story':
+      case Modal.Story:
         return <Story />
-      case 'Switcher':
+      case Modal.Switcher:
         return <Switcher />
-      case 'Event':
+      case Modal.Event:
         return <Event />
     }
   }

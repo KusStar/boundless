@@ -13,6 +13,7 @@ import { InjectedSystemProps, actions as systemActions } from '@utils/store/syst
 import { compose, isGameOver } from '@utils/helpers'
 import launchpad from '@utils/launchpad'
 import store from '@utils/store'
+import { Modal, Sound, EndType } from '@utils/enums'
 
 
 interface HomeProps {
@@ -45,8 +46,8 @@ const Home = memo((props: Props) => {
         unsubscribe.current()
         unsubscribe.current = null
       }
-      onEnd(type as EndType)
-      launchpad.fire('end')
+      onEnd(type)
+      launchpad.fire(Sound.End)
     }
   }
 
@@ -57,10 +58,10 @@ const Home = memo((props: Props) => {
   }
 
   const handleOnModal = (target: Modal) => {
-    let soundName: Sound = 'doorOpen'
+    let soundName = Sound.DoorOpen
     if (target === system.currentModal) { 
-      target = ''
-      soundName = 'doorClose'
+      target = Modal.Unknown
+      soundName = Sound.DoorClose
     }
     changeModal(target)
 

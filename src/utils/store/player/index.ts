@@ -1,5 +1,6 @@
 import { INITIAL_PLAYER_STATE } from '@utils/constants'
 import { getEffected } from './effect'
+import { EffectType } from '@utils/enums'
 
 export default { 
   state: INITIAL_PLAYER_STATE

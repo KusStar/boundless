@@ -1,15 +1,3 @@
-
-declare type Route = 'Home' | 'Splash' | 'End'
-
-declare type Modal = 'Package' | 'Story' | 'Event' | 'Switcher' | ''
-
-declare type Sound = 'eat' | 'doorOpen' | 'doorClose' 
-  | 'chestOpen' | 'chestClose' | 'coin' | 'hit' | 'end'
-
-declare type EndType = 'health' | 'energy' |  ''
-
-declare type EffectType = 'mask' | 'money' | 'food'
-
 declare interface StringKeyObject {
   [key: string]: any
 }
@@ -23,7 +11,7 @@ declare interface System {
   scene: {
     id: number
   }
-  currentModal: Modal
+  currentModal: import("@utils/enums").Modal;
 }
 
 declare interface Player extends PlayerEffectableProps {
