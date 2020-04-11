@@ -5,6 +5,7 @@ import Image from './Image'
 import Input from './Input'
 import Text from './Text'
 import Touchable from './Touchable'
+import Button from './Button'
 
 export {
   Container,
@@ -13,5 +14,6 @@ export {
   Image,
   Input,
   Text,
-  Touchable
+  Touchable,
+  Button
 }
