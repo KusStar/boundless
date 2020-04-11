@@ -9,14 +9,14 @@ const LineWrapper = styled.div`
 `
 
 interface LineProps {
-  value?: number
+  value: number
   opacity?: number
   color?: string
 }
 
 const Line = styled.div<LineProps>`
   height: 100%;
-  width: ${props => (props.value || 100)+ '%'};
+  width: ${props => (props.value > 0 ? props.value : 0)+ '%'};
   border-radius: 8px;
   position: absolute;
   background: ${props => props.color || '#000'};
@@ -34,7 +34,7 @@ const Bar: React.FC<Props> = ({
   value
 }) => (
   <LineWrapper>
-    <Line opacity={0.5} color={color} />
+    <Line opacity={0.5} color={color} value={100} />
     <Line color={color} value={value} />
   </LineWrapper>
 )
