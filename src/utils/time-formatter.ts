@@ -11,6 +11,10 @@ const readable = (time: number) => {
   return dayjs(time).format('周ddd HH:mm')
 }
 
+const readableDate = (time: number) => {
+  return dayjs(time).format('MMM DD, YYYY')
+}
+
 const period = (time: number) => {
   const hour = dayjs(time).get('hour')
 
@@ -24,7 +28,9 @@ const period = (time: number) => {
   }
 }
 
+
 export default { 
   readable,
-  period
+  readableDate,
+  period,
 }
